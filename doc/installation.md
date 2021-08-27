@@ -211,8 +211,13 @@ Make sure to edit the config file to match your setup:
     # domain name of your host serving Redmine. Also, replace
     # the 'listen' line with the following:
     #   listen 80 default_server;         # e.g., listen 192.168.1.1:80;
+    
+    # Make sure nginx runs under user redmine:
+    
+    # user redmine;
     sudo vim /etc/nginx/sites-available/redmine
-
+    chown -R redmine:redmine /var/lib/nginx
+     
 ## Restart
 
     sudo service nginx restart
